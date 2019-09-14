@@ -1,8 +1,10 @@
+// Abstract strategy
 interface CryptoAlgorithm {
 
     char[] crypt(char[] data, int key);
 }
 
+// Context class in Strategy
 class Cryptor {
     private CryptoAlgorithm algorithm;
 
@@ -14,6 +16,8 @@ class Cryptor {
         return String.valueOf(algorithm.crypt(data.toCharArray(), key));
     }
 }
+
+//Concrete strategies
 
 class UnicodeEncryption implements CryptoAlgorithm {
 
