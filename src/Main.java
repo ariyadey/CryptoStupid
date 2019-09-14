@@ -10,7 +10,8 @@ public class Main {
         var key = Integer.MIN_VALUE;
         String algorithm = null;
         File outFile = null;
-
+        
+//         Tries to get needed inputs from main arguments
         for (var i = 0; i < args.length; i += 2)
             switch (args[i]) {
                 case "-mode":
@@ -40,6 +41,7 @@ public class Main {
                     throw new IllegalArgumentException();
             }
 
+//         Gets the missed data from user input
         try (var scanner = new Scanner(System.in)) {
 
             if (data == null) {
@@ -58,7 +60,9 @@ public class Main {
             }
         }
 
+//         Creates a new instance of Context class in Strategy Pattern
         var cryptor = new Cryptor();
+//         Specifies the algorithm to be used according to user input
         switch (algorithm) {
             case "shift":
                 if (mode.equals("enc")) {
@@ -75,8 +79,10 @@ public class Main {
                 }
                 break;
         }
+//         Executes the algorithm
         var crypted = cryptor.crypt(data, key);
 
+//         Writes to console or the specified file
         if (outFile == null) {
             System.out.println(crypted);
         } else {
