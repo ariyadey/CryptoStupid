@@ -12,3 +12,4 @@ This an educational project featured in [JetBrains Academy](https://hyperskill.o
  - [ ] Adding support for more file formts to encrypt
  - [ ] Using some Kotlin to demonstrate the interoperability between Java and Kotlin
  - [ ] Making it more concise of errors and exceptions
+ - [ ] Adding test cases
