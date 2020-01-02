@@ -1,6 +1,5 @@
 # CryptoStupid
 A simple stupid encryption system for educational purposes.
-This an educational project featured in [JetBrains Academy](https://hyperskill.org).
 
 ## Features:
  - Encrypting and decrypting of text strings through command line arguments and files by very simple algorithms.
