@@ -6,8 +6,8 @@ public class Main {
     }
 
     private static String getEncrypted(String string) {
-        var chars = string.toCharArray();
-        var encrypted = new char[string.length()];
+        final var chars = string.toCharArray();
+        final var encrypted = new char[string.length()];
         for (var i = 0; i < string.length(); i++) {
             //todo store bounds to reuse
             if (chars[i] >= 97 && chars[i] <= 122) {
