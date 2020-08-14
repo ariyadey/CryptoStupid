@@ -12,10 +12,12 @@ public class Main {
 
     private static String getEncrypted(String string, int key) {
         final var chars = string.toCharArray();
-        final var encrypted = new char[string.length()];
+        key = key % ('z' - 'a' + 1);
         for (var i = 0; i < string.length(); i++) {
-
+            if (chars[i] >= 'a' && chars[i] <= 'z') {
+                chars[i] += (chars[i] + key <= 'z') ? key : ('a' + key - 'z' - 1);
+            }
         }
-        return String.valueOf(encrypted);
+        return String.valueOf(chars);
     }
 }
