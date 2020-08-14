@@ -1,23 +1,23 @@
 package encryptdecrypt;
 
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println(getEncrypted("we found a treasure!"));
+        final var scanner = new Scanner(System.in);
+        final var input = scanner.nextLine();
+        final var key = scanner.nextInt();
+        System.out.println(getEncrypted(input, key));
     }
 
-    private static String getEncrypted(String string) {
+    private static String getEncrypted(String string, int key) {
         final var chars = string.toCharArray();
-        final var encrypted = new char[string.length()];
+        key = key % ('z' - 'a' + 1);
         for (var i = 0; i < string.length(); i++) {
-            //todo store bounds to reuse
-            if (chars[i] >= 97 && chars[i] <= 122) {
-                encrypted[i] = (char) (97 + 122 - chars[i]);
-            } else if (chars[i] >= 65 && chars[i] <= 90) {
-                encrypted[i] = (char) (65 + 90 - chars[i]);
-            } else {
-                encrypted[i] = chars[i];
+            if (chars[i] >= 'a' && chars[i] <= 'z') {
+                chars[i] += (chars[i] + key <= 'z') ? key : ('a' + key - 'z' - 1);
             }
         }
-        return String.valueOf(encrypted);
+        return String.valueOf(chars);
     }
 }
